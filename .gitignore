@@ -167,3 +167,7 @@ lab_2/.idea/modules.xml
 lab_2/.idea/vcs.xml
 lab_2/.idea/workspace.xml
 lab_2/.idea/lab_2.iml
+lab_2/Pipfile
+lab_2/Pipfile.lock
+lab_2/.idea/lab_2.iml
+/lab_2/images
