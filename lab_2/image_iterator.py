@@ -7,7 +7,7 @@ class Iterator:
         :param dir_annotation: path to the annotation file
         """
         self.dir_annotation = dir_annotation
-        self.paths = self.load()
+        self.paths = self.__load()
         self.limit = len(self.paths)
         self.counter = 0
 
@@ -22,7 +22,7 @@ class Iterator:
         else:
             raise StopIteration
 
-    def load(self) -> list:
+    def __load(self) -> list:
         with open(self.dir_annotation, "r", encoding="utf-8") as file:
             reader = csv.reader(file)
             next(reader)
