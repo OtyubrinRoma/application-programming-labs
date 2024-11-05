@@ -9,11 +9,9 @@ def create_annotation(dir_img: str, dir_annotation: str):
     :return:
     """
     try:
-        if "/" in dir_annotation:
-            drive, path = os.path.splitdrive(dir_annotation)
-            abs_path, file_name = os.path.split(path)
-            if not os.path.isdir(abs_path):
-                os.mkdir(abs_path)
+        path, file_name = os.path.split(dir_annotation)
+        if not os.path.isdir(path):
+            raise NotADirectoryError("Path missing")
         with open(dir_annotation, "w", newline="", encoding="utf-8") as annotation:
             writer = csv.writer(annotation)
             writer.writerow(["relative path", "absolute path"])
