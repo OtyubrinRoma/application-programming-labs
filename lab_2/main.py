@@ -1,8 +1,7 @@
+from annotation import create_annotation
+from image_downloader import img_download
 from image_iterator import Iterator
 from parser import create_parse
-from image_downloader import img_download
-from annotation import create_annotation
-import os
 
 def main() -> None:
     try:
