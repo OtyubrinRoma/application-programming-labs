@@ -17,7 +17,6 @@ def main() -> None:
         create_color_histogram(color_streams, colors)
         for i, j in enumerate(color_streams):
             save_rgb(j, args.dir_res + "\\" + colors[i] + ".jpg")
-            cv2.imshow(args.dir_res, img)
             cv2.waitKey(0)
     except Exception as exc:
         print("Error:", exc)

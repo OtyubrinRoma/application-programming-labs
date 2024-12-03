@@ -11,3 +11,4 @@ def save_rgb(img: np.ndarray, path: str) -> None:
     """
     if not (cv2.imwrite(path, img)):
         raise SystemError("Unable to save image to directory")
+    cv2.imshow(path, img)
