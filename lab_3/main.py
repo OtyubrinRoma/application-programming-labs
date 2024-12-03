@@ -1,6 +1,6 @@
 import cv2
 
-from histogram import create_color_histogram
+from histogram import show_color_histogram
 from parser import create_parse
 from split import rgb_split
 from save import save_rgb
@@ -14,7 +14,7 @@ def main() -> None:
         cv2.waitKey(0)
         colors = ["red", "green", "blue"]
         color_streams = rgb_split(img)
-        create_color_histogram(color_streams, colors)
+        show_color_histogram(img, colors)
         for i, j in enumerate(color_streams):
             save_rgb(j, args.dir_res + "\\" + colors[i] + ".jpg")
             cv2.waitKey(0)

@@ -2,7 +2,10 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 
-def create_color_histogram(streams: tuple, colors: list) -> None:
+def create_color_histogram(streams, i):
+    return cv2.calcHist([streams], [i], None, [256], [0, 256])
+
+def show_color_histogram(streams: tuple, colors: list) -> None:
     """
     Build a histogram of the intensity and frequency of the three primary colors
     :param streams:
@@ -10,12 +13,11 @@ def create_color_histogram(streams: tuple, colors: list) -> None:
     :param colors:
     An array of primary colors
     """
-    x = np.arange(256)
-    bar_width = 0.5
-    plt.figure(figsize = (10, 6))
-    for i, (streams, colors) in enumerate(zip(streams, colors)):
-        hist = cv2.calcHist([streams], [0], None, [256], [0, 256]).flatten()
-        plt.bar(x + i * bar_width, hist, width = bar_width, label = colors, alpha = 0.2)
+    colors = ('g', 'b', 'r')
+
+    for i, color in enumerate(colors):
+        hist = create_color_histogram(streams, i)
+        plt.plot(hist, color=color)
 
     plt.title('Comparative histogram of colors')
     plt.xlabel('Intensity')
