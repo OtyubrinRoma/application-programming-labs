@@ -1,6 +1,5 @@
 import cv2
 import matplotlib.pyplot as plt
-import numpy as np
 
 def create_color_histogram(streams, i):
     return cv2.calcHist([streams], [i], None, [256], [0, 256])
@@ -13,7 +12,6 @@ def show_color_histogram(streams: tuple, colors: list) -> None:
     :param colors:
     An array of primary colors
     """
-    colors = ('g', 'b', 'r')
 
     for i, color in enumerate(colors):
         hist = create_color_histogram(streams, i)
