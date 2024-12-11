@@ -31,10 +31,8 @@ def add_image_shape(df : pd.DataFrame) -> pd.DataFrame:
             depth.append(hwd[2])
         else:
             raise FileNotFoundError
-    df["height"] = height
-    df["width"] = width
-    df["depth"] = depth
-    return df
+
+    return df.assign(height = height, width = width, depth = depth)
 
 
 def compute_area(df: pd.DataFrame) -> pd.DataFrame:
@@ -43,8 +41,7 @@ def compute_area(df: pd.DataFrame) -> pd.DataFrame:
     :param df: DataFrame with image paths and shapes
     :return: DataFrame with image paths, shapes and areas
     """
-    df['area'] = df['height'] * df['width']
-    return df
+    return df.assign(area = df['height'] * df['width'])
 
 
 def get_statistics(df: pd.DataFrame) -> pd.DataFrame:
